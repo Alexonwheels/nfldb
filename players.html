@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex's NFL Database</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Alex's NFL Database</h1>
+
+<nav class="navbar">
+    <a href="index.html" class="navbutton">Team Stats</a>
+    <a href="players.html" class="navbutton">Team Depth Charts</a>
+</nav>
+
+<div class="container">
+    <div class="header">
+        <h2>Team Depth Charts</h2>
+    </div>
+    <select name="team-select" id="team-select">
+        <option value="none" selected disabled hidden>Select your team!</option>
+        <option value="0">ARI</option>
+        <option value="1">ATL</option>
+        <option value="2">BAL</option>
+        <option value="3">BUF</option>
+        <option value="4">CAR</option>
+        <option value="5">CHI</option>
+        <option value="6">CIN</option>
+        <option value="7">CLE</option>
+        <option value="8">DAL</option>
+        <option value="9">DEN</option>
+        <option value="10">DET</option>
+        <option value="11">GB</option>
+        <option value="12">HOU</option>
+        <option value="13">IND</option>
+        <option value="14">JAC</option>
+        <option value="15">KC</option>
+        <option value="22">LV</option>
+        <option value="25">LAC</option>
+        <option value="28">LAR</option>
+        <option value="16">MIA</option>
+        <option value="17">MIN</option>
+        <option value="18">NE</option>
+        <option value="19">NO</option>
+        <option value="20">NYG</option>
+        <option value="21">NYJ</option>
+        <option value="23">PHI</option>
+        <option value="24">PIT</option>
+        <option value="27">SF</option>
+        <option value="26">SEA</option>
+        <option value="29">TB</option>
+        <option value="30">TEN</option>
+        <option value="31">WAS</option>
+    </select>
+
+    <div class="results">
+        <div class="table-head">
+            <h3>Offense</h3>
+        </div>
+        <table id="offense-table" class="team-table">
+            <tr>
+                <th>Player</th>
+                <th>Position</th>
+            </tr>
+        </table>
+    </div>
+
+    <div class="results">
+        <div class="table-head">
+            <h3>Defense</h3>
+        </div>
+        <table id="defense-table" class="team-table">
+            <tr>
+                <th>Player</th>
+                <th>Position</th>
+            </tr>
+        </table>
+    </div>
+
+    <div class="results">
+        <div class="table-head">
+            <h3>Special Teams</h3>
+        </div>
+        <table id="special-teams-table" class="team-table">
+            <tr>
+                <th>Player</th>
+                <th>Position</th>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<footer class="w3-container w3-padding-64 w3-center w3-black w3-xlarge">
+    <p class="w3-medium">
+      Powered by everything I learned from <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
+    </p>
+</footer>
+
+<script src="playerscript.js"></script>
+</body>
+</html>

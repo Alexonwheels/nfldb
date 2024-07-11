@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex's NFL Database</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Alex's NFL Database</h1>
+
+<nav class="navbar">
+    <a href="index.html" class="navbutton">Team Stats</a>
+    <a href="players.html" class="navbutton">Team Depth Charts</a>
+</nav>
+
+<div class="container">
+    <div class="header">
+        <h2>Team Stats</h2>
+    </div>
+    <div class="search">
+        <input type="text" placeholder="Enter NFL season year" spellcheck="false">
+        <button><img src="images/search.png"></button>
+    </div>
+
+    <div class="results">
+        <div class="table-head">
+            <h3>NFL Season</h3>
+            <button class="sort-button">Sort A-Z</button>
+            <button class="sort-wins-button">Sort by Wins/Losses</button>
+            <button class="clear-button">Clear</button>
+        </div>
+        <table id="teams-table" class="team-table">
+            <tr>
+                <th>Team</th>
+                <th>Wins</th>
+                <th>Losses</th>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<footer class="w3-container w3-padding-64 w3-center w3-black w3-xlarge">
+    <p class="w3-medium">
+        Powered by everything I learned from <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
+    </p>
+</footer>
+
+<script src="teamscript.js"></script>
+</body>
+</html>
