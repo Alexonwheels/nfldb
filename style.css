@@ -149,6 +149,14 @@ tr:nth-child(even) {
     background: #f2f2f2; /* Light gray background for alternate rows */
 }
 
+.info-table .info-subtable th{
+    width: 30%;
+}
+
+.info-table h3{
+    padding-top: 10px;
+}
+
 /* Footer styles */
 footer {
     padding: 20px;

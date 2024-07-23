@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex's NFL Database</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Alex's NFL Database</h1>
+
+<nav class="navbar">
+    <a href="index.html" class="navbutton">Team Stats</a>
+    <a href="players.html" class="navbutton">Team Depth Charts</a>
+    <a href="teaminfo.html" class="navbutton">Team Info</a>
+</nav>
+
+<div class="container">
+    <div class="header">
+        <h2>Team Info</h2>
+    </div>
+    <select name="team-select" id="team-select">
+        <option value="none" selected disabled hidden>Select your team!</option>
+        <option value="1">ARI</option>
+        <option value="2">ATL</option>
+        <option value="3">BAL</option>
+        <option value="4">BUF</option>
+        <option value="5">CAR</option>
+        <option value="6">CHI</option>
+        <option value="7">CIN</option>
+        <option value="8">CLE</option>
+        <option value="9">DAL</option>
+        <option value="10">DEN</option>
+        <option value="11">DET</option>
+        <option value="12">GB</option>
+        <option value="13">HOU</option>
+        <option value="14">IND</option>
+        <option value="15">JAC</option>
+        <option value="16">KC</option>
+        <option value="25">LV</option>
+        <option value="29">LAC</option>
+        <option value="32">LAR</option>
+        <option value="19">MIA</option>
+        <option value="20">MIN</option>
+        <option value="21">NE</option>
+        <option value="22">NO</option>
+        <option value="23">NYG</option>
+        <option value="24">NYJ</option>
+        <option value="26">PHI</option>
+        <option value="28">PIT</option>
+        <option value="31">SF</option>
+        <option value="30">SEA</option>
+        <option value="33">TB</option>
+        <option value="34">TEN</option>
+        <option value="35">WAS</option>
+    </select>
+
+    <div class="results">
+        <div class="info-table" id="info-table">
+
+        </div>
+    </div>
+</div>
+
+<footer class="w3-container w3-padding-64 w3-center w3-black w3-xlarge">
+    <p class="w3-medium">
+        Powered by everything I learned from <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
+    </p>
+</footer>
+
+<script src="teaminfoscript.js"></script>
+</body>
+</html>
