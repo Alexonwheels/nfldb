@@ -5,3 +5,6 @@ This project uses API endpoints courtesy of sportsdata.io to create database tab
 -Currently the team stats page is only giving results for the 2023 season. This may have to do with the free trial nature of the API.
 -Working on adding a team info page
 -First version of team info page added
+
+08/09/2024:
+-learning how to make this web app accessible on phone/tablet. trying out changes to relative pathing between files.
