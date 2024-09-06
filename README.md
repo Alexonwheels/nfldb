@@ -8,3 +8,6 @@ This project uses API endpoints courtesy of sportsdata.io to create database tab
 
 08/09/2024:
 -learning how to make this web app accessible on phone/tablet. trying out changes to relative pathing between files.
+
+09/06/2024:
+-finally realized how quick and easy github pages are... built a page for this project. I can finally see how janky this looks on mobile!
