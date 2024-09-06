@@ -38,6 +38,10 @@ body {
     color: #333; /* Dark text color */
 }
 
+p {
+    margin-bottom: 5px;
+}
+
 /* Navbar styles */
 .navbar {
     display: flex;
