@@ -5,12 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchBox = document.querySelector(".search input");
     const searchBtn = document.querySelector(".search button");
     const teamsTable = document.getElementById("teams-table");
-    const sortBtn = document.querySelector(".sort-button");
-    const sortWinsLossesBtn = document.querySelector(".sort-wins-button");
     const clearBtn = document.querySelector(".clear-button");
 
-    let nameSortDirection = 'desc'; // Initial sort direction for Name
-    let currentSortKey = 'Wins'; // Initial sort key for Wins or Losses
+    let sortDirection = {}; // Store sort direction for each column
 
     // Function to fetch standings data for a given year
     async function fetchStandings(year) {
@@ -28,9 +25,19 @@ document.addEventListener('DOMContentLoaded', () => {
     function displayStandings(data) {
         teamsTable.innerHTML = `
             <tr>
-                <th>Team</th>
-                <th>Wins</th>
-                <th>Losses</th>
+                <th data-key="Name">Team</th>
+                <th data-key="Wins">Wins</th>
+                <th data-key="Losses">Losses</th>
+                <th data-key="Ties">Ties</th>
+                <th data-key="Percentage">Pct</th>
+                <th data-key="HomeWins">Home</th>
+                <th data-key="AwayWins">Away</th>
+                <th data-key="DivisionWins">Div</th>
+                <th data-key="ConferenceWins">Conf</th>
+                <th data-key="PointsFor">PF</th>
+                <th data-key="PointsAgainst">PA</th>
+                <th data-key="NetPoints">DIFF</th>
+                <th data-key="Streak">Streak</th>
             </tr>
         `;
         data.forEach(team => {
@@ -39,25 +46,59 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td>${team.Name}</td>
                 <td>${team.Wins}</td>
                 <td>${team.Losses}</td>
+                <td>${team.Ties}</td>
+                <td>${team.Percentage}</td>
+                <td>${team.HomeWins}-${team.HomeLosses}</td>
+                <td>${team.AwayWins}-${team.AwayLosses}</td>
+                <td>${team.DivisionWins}-${team.DivisionLosses}</td>
+                <td>${team.ConferenceWins}-${team.ConferenceLosses}</td>
+                <td>${team.PointsFor}</td>
+                <td>${team.PointsAgainst}</td>
+                <td>${team.NetPoints}</td>
+                <td>${team.Streak}</td>
             `;
             teamsTable.appendChild(row);
         });
+        setupHeaderSorting(data);
     }
 
     // Function to sort standings by a specific key and direction
     function sortStandings(data, key, direction) {
         data.sort((a, b) => {
-            const valueA = (key === 'Name') ? a[key].toLowerCase() : a[key];
-            const valueB = (key === 'Name') ? b[key].toLowerCase() : b[key];
+            const valueA = typeof a[key] === 'string' ? a[key].toLowerCase() : a[key];
+            const valueB = typeof b[key] === 'string' ? b[key].toLowerCase() : b[key];
             let comparison = 0;
             if (valueA > valueB) {
                 comparison = 1;
             } else if (valueA < valueB) {
                 comparison = -1;
             }
-            return (direction === 'desc') ? (comparison * -1) : comparison;
+            return direction === 'desc' ? comparison * -1 : comparison;
         });
         return data;
+    }
+
+    // Function to set up table header sorting
+    function setupHeaderSorting(data) {
+        const headers = teamsTable.querySelectorAll('th');
+        headers.forEach(header => {
+            const key = header.getAttribute('data-key');
+            header.style.cursor = 'pointer';
+
+            header.addEventListener('click', () => {
+                const currentDirection = sortDirection[key] || 'asc'; // Default is ascending
+                const newDirection = currentDirection === 'asc' ? 'desc' : 'asc';
+                sortDirection[key] = newDirection;
+
+                // Special case for "Team" (Name), default to ascending
+                if (key === 'Name') {
+                    sortDirection[key] = newDirection === 'desc' ? 'asc' : 'desc';
+                }
+
+                const sortedData = sortStandings(data, key, sortDirection[key]);
+                displayStandings(sortedData);
+            });
+        });
     }
 
     // Event listener for search button
@@ -88,41 +129,6 @@ document.addEventListener('DOMContentLoaded', () => {
         searchBox.value = "";
     });
 
-    // Event listener for sort buttons
-    function setupSortButtons() {
-        sortBtn.addEventListener("click", () => {
-            const rows = Array.from(teamsTable.querySelectorAll("tr:not(:first-child)"));
-            const currentData = rows.map(row => ({
-                Name: row.cells[0].textContent,
-                Wins: parseInt(row.cells[1].textContent),
-                Losses: parseInt(row.cells[2].textContent)
-            }));
-
-            // Toggle nameSortDirection between 'desc' and 'asc'
-            nameSortDirection = nameSortDirection === 'desc' ? 'asc' : 'desc';
-
-            const sortedData = sortStandings(currentData, 'Name', nameSortDirection);
-            displayStandings(sortedData);
-        });
-
-        sortWinsLossesBtn.addEventListener("click", () => {
-            const rows = Array.from(teamsTable.querySelectorAll("tr:not(:first-child)"));
-            const currentData = rows.map(row => ({
-                Name: row.cells[0].textContent,
-                Wins: parseInt(row.cells[1].textContent),
-                Losses: parseInt(row.cells[2].textContent)
-            }));
-
-            // Toggle currentSortKey between 'Wins' and 'Losses'
-            currentSortKey = currentSortKey === 'Wins' ? 'Losses' : 'Wins';
-
-            const sortedData = sortStandings(currentData, currentSortKey, 'desc');
-            displayStandings(sortedData);
-        });
-    }
-
-    // Initialize page and setup listeners
-    initializePage().then(() => {
-        setupSortButtons();
-    });
+    // Initialize page
+    initializePage();
 });
