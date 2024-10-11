@@ -117,18 +117,6 @@ document.addEventListener('DOMContentLoaded', () => {
         displayStandings(data);
     }
 
-    // Event listener for clear button
-    clearBtn.addEventListener("click", () => {
-        teamsTable.innerHTML = `
-            <tr>
-                <th>Team</th>
-                <th>Wins</th>
-                <th>Losses</th>
-            </tr>
-        `;
-        searchBox.value = "";
-    });
-
     // Initialize page
     initializePage();
 });

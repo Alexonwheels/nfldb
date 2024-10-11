@@ -22,9 +22,7 @@ body {
     background: #fff; /* White background */
     border-radius: 8px;
     padding: 20px;
-    width: 100%;
-    max-width: 1600px;
-    margin-top: 20px;
+    margin: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
 }
 
@@ -51,7 +49,6 @@ p {
     width: 100%;
     max-width: 800px;
     border-radius: 8px;
-    margin-bottom: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
 }
 
@@ -63,6 +60,22 @@ p {
     border-radius: 5px;
     background: #555; /* Darker button background */
     transition: background 0.3s;
+}
+
+.statRow {
+    display:flex;
+}
+
+.statColumn {
+    display: flex;
+    justify-content: center;
+    background: #fff; /* Dark background */
+    padding: 10px;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 8px;
+    margin: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
 }
 
 .navbutton:hover {
