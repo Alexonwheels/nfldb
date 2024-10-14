@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex's NFL Database</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <a href="./index.html" class="contact">Take me back!</a>
+
+<p class="pContact">
+    Hey there! Thank you so much for taking the time to look at my website. 
+    While a lot of work, this has been incredibly fun to make and improve upon.
+    If you have any questions, comments, or inquiries, please feel free to send me an email!
+    I will try my best to respond to all incoming messages.
+</p>
+
+<form id="contact-form" method="POST" action="sendmail.php">
+    <div class="form-row form-error" style="display:none;"></div>
+    <div class="form-row">
+        <label for="contact-form-name">Name:</label>
+        <input id="contact-form-name" class="form-input" type="text" name="name" required>
+    </div>
+    <div class="form-row">
+        <label for="contact-form-email">Email:</label>
+        <input id="contact-form-email" class="form-input" type="email" name="email" required>
+    </div>
+    <div class="form-row">
+        <label for="contact-form-message">Message:</label>
+        <textarea id="contact-form-message" class="form-input" name="message" required></textarea>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+  <script src="./contactscript.js"></script>
+</body>

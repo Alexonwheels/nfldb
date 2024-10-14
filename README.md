@@ -26,3 +26,7 @@ to do:
 -another container over the two sides for overall game info i.e. game score by quarter, team headers
 -.js for these elements, build off of depth chart and info pages
 -links to faq/contact pages, links to github/linkedin etc. in a bottom corner
+
+10/14/2024:
+-ignoring my problems with the box score page
+-first attempt at contact page
